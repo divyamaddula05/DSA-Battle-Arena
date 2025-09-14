@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Battle - Master Algorithms by Defeating Code Monsters</title>
+    <meta name="description" content="Learn Data Structures and Algorithms through an epic battle with code monsters. Answer questions correctly to shrink the monster and prove your coding skills!">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Auth Page -->
+    <div id="auth-page" class="page active">
+        <div class="auth-container">
+            <div class="auth-background">
+                <div class="floating-orb orb-1"></div>
+                <div class="floating-orb orb-2"></div>
+                <div class="floating-orb orb-3"></div>
+            </div>
+            
+            <div class="auth-content">
+                <div class="auth-header">
+                    <div class="logo">
+                        <div class="logo-icon">⚔️</div>
+                        <h1>DSA Battle</h1>
+                        <p>Fight the code monster with knowledge!</p>
+                    </div>
+                </div>
+
+                <div class="auth-form-container">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="signup">Sign Up</button>
+                    </div>
+
+                    <form id="auth-form" class="auth-form">
+                        <div class="input-group">
+                            <div class="input-icon">👤</div>
+                            <input type="text" id="username" placeholder="Username" required>
+                        </div>
+
+                        <div class="input-group" id="email-group" style="display: none;">
+                            <div class="input-icon">📧</div>
+                            <input type="email" id="email" placeholder="Email">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-icon">🔒</div>
+                            <input type="password" id="password" placeholder="Password" required>
+                        </div>
+
+                        <div id="error-message" class="error-message"></div>
+
+                        <button type="submit" class="auth-button">
+                            <span class="button-text">Enter Battle</span>
+                            <div class="loading-spinner" style="display: none;">⚡</div>
+                        </button>
+                    </form>
+
+                    <div class="demo-info">
+                        <p>Demo: Use any username and password to enter</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Topics Page -->
+    <div id="topics-page" class="page">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo-small">🏆</div>
+                    <h1>DSA Battle Arena</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="user-icon">👤</span>
+                        <span id="username-display">Welcome, User</span>
+                    </div>
+                    <button id="logout-btn" class="logout-btn">
+                        <span>🚪</span>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h2>Choose Your <span class="gradient-text">Battle Arena</span></h2>
+                <p>Select a Data Structures & Algorithms topic to begin your quest. Defeat the code monster with your knowledge!</p>
+            </div>
+
+            <div class="topics-grid" id="topics-grid">
+                <!-- Topics will be dynamically generated -->
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Topics Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Difficulty Levels</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Monsters to Defeat</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Difficulty Page -->
+    <div id="difficulty-page" class="page">
+        <header class="header">
+            <div class="header-content">
+                <button id="back-to-topics" class="back-btn">
+                    <span>←</span>
+                    <span>Back to Topics</span>
+                </button>
+                <div class="topic-info">
+                    <h1 id="selected-topic-name">Topic Name</h1>
+                    <p id="selected-topic-desc">Topic Description</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h2>Choose Your <span class="gradient-text">Difficulty Level</span></h2>
+                <p>Select the challenge level that matches your current skill. Remember, higher difficulty means bigger monsters!</p>
+            </div>
+
+            <div class="difficulty-grid">
+                <div class="difficulty-card easy" data-difficulty="easy">
+                    <div class="difficulty-icon">⚡</div>
+                    <h3>Easy</h3>
+                    <p>Perfect for beginners. Basic concepts and simple implementations.</p>
+                    <div class="difficulty-stats">
+                        <div class="stat-row">
+                            <span>Monster Size:</span>
+                            <span class="stat-value">Small Monster</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Questions:</span>
+                            <span class="stat-value">5-8 Questions</span>
+                        </div>
+                    </div>
+                    <div class="difficulty-action">Start Battle</div>
+                </div>
+
+                <div class="difficulty-card medium" data-difficulty="medium">
+                    <div class="difficulty-icon">🎯</div>
+                    <h3>Medium</h3>
+                    <p>Intermediate level. Requires solid understanding of concepts.</p>
+                    <div class="difficulty-stats">
+                        <div class="stat-row">
+                            <span>Monster Size:</span>
+                            <span class="stat-value">Medium Monster</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Questions:</span>
+                            <span class="stat-value">8-10 Questions</span>
+                        </div>
+                    </div>
+                    <div class="difficulty-action">Start Battle</div>
+                </div>
+
+                <div class="difficulty-card hard" data-difficulty="hard">
+                    <div class="difficulty-icon">🔥</div>
+                    <h3>Hard</h3>
+                    <p>Advanced level. Complex problems requiring deep knowledge.</p>
+                    <div class="difficulty-stats">
+                        <div class="stat-row">
+                            <span>Monster Size:</span>
+                            <span class="stat-value">Boss Monster</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Questions:</span>
+                            <span class="stat-value">10-12 Questions</span>
+                        </div>
+                    </div>
+                    <div class="difficulty-action">Start Battle</div>
+                </div>
+            </div>
+
+            <div class="battle-tips">
+                <h3>⚔️ Battle Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <div class="tip-dot green"></div>
+                        <div>
+                            <strong>Correct Answer</strong>
+                            <p>Shrinks the monster and increases your score</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-dot red"></div>
+                        <div>
+                            <strong>Wrong Answer</strong>
+                            <p>Makes the monster grow larger and stronger</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-dot purple"></div>
+                        <div>
+                            <strong>Victory Condition</strong>
+                            <p>Defeat the monster by answering correctly</p>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-dot yellow"></div>
+                        <div>
+                            <strong>Strategy</strong>
+                            <p>Think carefully - each wrong answer makes it harder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Quiz Battle Page -->
+    <div id="quiz-page" class="page">
+        <header class="header">
+            <div class="header-content">
+                <button id="back-to-difficulty" class="back-btn">
+                    <span>←</span>
+                    <span>Back</span>
+                </button>
+                <div class="quiz-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">🏆</span>
+                        <span id="current-score">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⏰</span>
+                        <span id="time-left">30s</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <main class="quiz-content">
+            <div class="battle-arena">
+                <div class="player-side">
+                    <div class="character-card">
+                        <h3>🧙‍♂️ Code Warrior</h3>
+                        <div class="character-stats">
+                            <div class="stat-badge">🛡️ Defense: Strong</div>
+                            <div class="stat-badge">⚔️ Knowledge: Sharp</div>
+                        </div>
+                        <div class="character-avatar">🧙‍♂️</div>
+                        <div class="character-info">
+                            <div class="info-item">
+                                <strong>Score: <span id="player-score">0</span></strong>
+                            </div>
+                            <div class="info-item">
+                                Correct: <span id="correct-answers">0</span>/<span id="total-answered">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="monster-side">
+                    <div class="character-card">
+                        <h3>👾 Code Monster</h3>
+                        <div class="character-stats">
+                            <div class="stat-badge" id="monster-power">⚡ Power: Strong</div>
+                        </div>
+                        <div class="monster-avatar" id="monster-avatar">👾</div>
+                        <div class="character-info">
+                            <div class="info-item">
+                                <strong>Size: <span id="monster-size">100</span>%</strong>
+                            </div>
+                            <div class="monster-health-bar">
+                                <div class="health-fill" id="health-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-section">
+                <div class="question-header">
+                    <span class="question-number">Question <span id="current-question-num">1</span> of <span id="total-questions">10</span></span>
+                    <span class="question-topic" id="question-topic">Arrays • Easy</span>
+                </div>
+
+                <h2 class="question-text" id="question-text">Loading question...</h2>
+
+                <div class="answers-grid" id="answers-grid">
+                    <!-- Answers will be dynamically generated -->
+                </div>
+
+                <div class="explanation-section" id="explanation-section" style="display: none;">
+                    <h4>Explanation:</h4>
+                    <p id="explanation-text"></p>
+                </div>
+
+                <div class="question-actions" id="question-actions" style="display: none;">
+                    <button id="next-question-btn" class="next-btn">Next Question</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <div class="game-result-icon" id="result-icon">🏆</div>
+            <h2 id="result-title">Victory!</h2>
+            <p id="result-message">Congratulations! You have defeated the code monster!</p>
+            
+            <div class="final-stats">
+                <div class="final-stat">
+                    <span>Final Score:</span>
+                    <span id="final-score">0</span>
+                </div>
+                <div class="final-stat">
+                    <span>Correct Answers:</span>
+                    <span id="final-correct">0/0</span>
+                </div>
+                <div class="final-stat">
+                    <span>Accuracy:</span>
+                    <span id="final-accuracy">0%</span>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="play-again-btn" class="primary-btn">Battle Again</button>
+                <button id="choose-topic-btn" class="secondary-btn">Choose Topic</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Key Modal -->
+    <div id="api-key-modal" class="modal">
+        <div class="modal-content">
+            <div class="game-result-icon">🔑</div>
+            <h2>API Configuration</h2>
+            <p>Enter your API key to generate dynamic quiz questions, or leave blank to use sample questions.</p>
+            
+            <div class="input-group" style="margin: 1.5rem 0;">
+                <div class="input-icon">🔑</div>
+                <input type="password" id="api-key-input" placeholder="Enter your API key (optional)">
+            </div>
+
+            <div class="modal-actions">
+                <button id="save-api-key-btn" class="primary-btn">Save & Continue</button>
+                <button id="skip-api-key-btn" class="secondary-btn">Skip (Use Sample Questions)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
